@@ -1,0 +1,51 @@
+(define append
+  (lambda (l1 l2)
+         (if (eq? '() l2)
+             l1
+             (if (eq? '() l1)
+             l2
+             (cons (car l1) (append (cdr l1) l2))))))
+
+(define reverse
+  (lambda (ls)
+    (if (eq? '() ls)
+    ls
+    (append (reverse (cdr ls)) (cons (car ls) '())))))
+
+(define mult
+  (lambda (a b)
+    (if (= b 0)
+        '()
+        (append (cons a '()) (mult a (- b 1))))))
+
+
+
+(define duplicate-items
+  (lambda (ls dup-count)
+    (if (eq? '() (cdr ls))
+     (mult (car ls) (car dup-count))
+    (append (mult (car ls) (car dup-count)) (duplicate-items (cdr ls) (append (cdr dup-count) (cons (car dup-count) '())))))))
+
+
+(define remove-all
+  (lambda (x lst)
+    (if (eq? '() lst)
+        lst
+        (if (eq? (car lst) x)
+            (remove-all x (cdr lst))
+            (cons (car lst) (remove-all x (cdr lst)))))))
+
+
+(define payment
+  (lambda (n coins-lst)
+        (if (= n 0)
+            1
+            (if (eq? coins-lst '())
+            0
+            (+ (payment (- n (car coins-lst)) (cdr coins-lst)) (payment n (remove-all (car coins-lst) coins-lst)))))))
+                               
+(define compose-n
+  (lambda(f n)
+    (if (= n 1)
+        f
+        (lambda (x) ((compose-n f (- n 1)) (f x))))))
