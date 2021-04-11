@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Assignment2.iml" filepath="$PROJECT_DIR$/.idea/Assignment2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Assignment2PPL_SchemeParser.iml" filepath="$PROJECT_DIR$/.idea/Assignment2PPL_SchemeParser.iml" />
     </modules>
   </component>
 </project>
